@@ -2,18 +2,23 @@ header {
   background-color: rgb(97, 97, 99);
   padding-top: 1rem;
 }
-
+.time {
+  margin-left: 2rem;
+  height: 2.4rem;
+  padding: 0.3rem;
+  color: rgb(236, 236, 237);
+}
 .search {
   border-width: 1px;
   border-color: rgba(72, 72, 74, 0.5);
-  height: 2rem;
+  height: 2.4rem;
   width: 10rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 #location {
   background-color: rgb(236, 236, 237);
-  margin-left: 1.5rem;
+  margin-left: 4rem;
   width: min-content;
   border-radius: 30% 0% 0% 30%;
 }
@@ -25,11 +30,47 @@ header {
 }
 .date {
   text-align: right;
-
   align-self: flex-end;
-  width: max-content;
+  max-height: 2.4rem;
+  min-width: max-content;
   color: rgb(236, 236, 237);
-  margin-right: 0.5rem;
-  margin-left: 3rem;
-  margin-bottom: 0;
+  margin-right: 4rem;
+  margin-left: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+.current-weather {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#weather-icon {
+  padding-top: 1rem;
+  width: 5em;
+  height: auto;
+}
+#current-weather-description {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.temperature {
+  font-size: 0.8rem;
+}
+
+#current-temperature {
+  line-height: 2rem;
+  font-size: 2.1rem;
+}
+.current-conditions,
+.feels-like,
+#max-min {
+  line-height: 1.1rem;
+  font-size: 0.8rem;
+}
+
+/* forecast section */
+
+.first {
+  background-color: rgba(236, 236, 237, 0.8);
 }
