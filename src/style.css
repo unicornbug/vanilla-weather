@@ -1,3 +1,6 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
 header {
   background-color: rgb(22, 33, 89);
   padding-top: 1rem;
@@ -14,7 +17,7 @@ header {
 
 #location {
   background-color: rgb(236, 236, 237);
-  margin-left: 7rem;
+  margin-left: 12%;
   width: min-content;
   border-radius: 30% 0% 0% 30%;
 }
@@ -41,7 +44,7 @@ header {
   max-height: 2rem;
   min-width: max-content;
   color: rgb(236, 236, 237);
-  margin-right: 8rem;
+  margin-right: 12%;
   margin-left: 4rem;
   margin-bottom: 0.5rem;
 }
@@ -56,15 +59,18 @@ header {
   margin-left: 0rem;
 }
 #current-weather-description {
-  margin-left: 0.5rem;
-  font-size: 1rem;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-style: italic;
 }
 
 .feels-like,
 #max-min {
-  margin-left: 0.5rem;
-  line-height: 1.1rem;
-  font-size: 0.8rem;
+  margin-left: 1.5rem;
+  line-height: 1.2rem;
+  font-weight: 300;
+  font-size: 0.9rem;
 }
 
 .icon {
@@ -73,7 +79,7 @@ header {
 
 .units {
   text-align: right;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 #c,
 #f {
@@ -83,31 +89,35 @@ header {
 }
 .heading {
   text-align: right;
+
   margin-right: 0rem;
   padding-left: 0;
   padding-right: 2rem;
   line-height: 2.1rem;
-  font-size: 2.1rem;
+  font-size: 2.2rem;
 }
 
 .current-conditions {
-  font-weight: 400;
+  font-weight: 300;
   text-align: right;
+  margin-top: 0.5rem;
   margin-left: 1rem;
-  line-height: 1.1rem;
-  font-size: 0.8rem;
+  line-height: 1.2rem;
+  font-size: 0.9rem;
 }
 
 /* forecast section */
 .forecast {
+  font-weight: 300;
+  font-family: "Roboto", sans-serif;
   margin-left: 1rem;
   margin-right: 1rem;
   padding-bottom: 0.5rem;
   padding-top: 0.8rem;
 }
 .day {
-  font-weight: 400;
-  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
 }
 .weather-desc {
   padding-left: 0.5rem;
