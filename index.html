@@ -26,9 +26,6 @@
     <div class="container-fluid">
       <header>
         <div class="row">
-          <span class="time"
-            ><i class="bi bi-clock"></i><span> 15:00</span></span
-          >
           <button id="location" class="search">
             <i class="bi bi-geo-alt"></i>
           </button>
@@ -46,41 +43,46 @@
           </button>
 
           <div class="date col-sm">
-            <span id="updateDate"> Thursday, </span><span>23/4/2022</span>
+            <span class="clock"
+              ><i class="bi bi-clock"></i><span> 15:00</span></span
+            >
+            <span class="calendar">
+              <i class="bi bi-calendar3"></i>
+              <span id="updateDate"> Thursday, </span
+              ><span>23/4/2022</span></span
+            >
           </div>
         </div>
       </header>
 
       <section class="current-weather">
-        <div class="row">
-          <div class="col-3 col-md-2">
+        <div class="row justify-content-md-center">
+          <div class="col-4 col-md-3">
+            <h2 class="current-city">Dublin</h2>
+            <div id="current-weather-description">Rain</div>
+
+            <div class="feels-like">feels like 15C</div>
+            <div id="max-min">
+              ↑<span id="maxT">21</span>°C ↓<span id="minT">10</span>°C
+            </div>
+          </div>
+          <div class="col-4 col-md-3 icon">
             <img
               id="weather-icon"
               src="http://openweathermap.org/img/wn/10d@2x.png"
               alt="weather condition"
             />
           </div>
-          <div class="col-5 col-md-3">
-            <h2>
-              <span id="current-temperature">20</span>
-              <span class="temperature">
-                <a href="" id="c">°C</a> | <a href="" id="f">°F</a>
-              </span>
-            </h2>
-            <span class="current-conditions">
-              <div class="current-conditions">Percipitation 23%</div>
-              <div class="current-conditions">Humidity 73%</div>
-              <div class="current-conditions">Wind 3m/s</div></span
-            >
-          </div>
+          <div class="col-4 col-md-3 heading">
+            <span id="current-temperature">20</span>
+            <span class="align-text-top units">
+              <a href="" id="c">°C</a> | <a href="" id="f">°F</a>
+            </span>
 
-          <div class="col-4 col-md-3">
-            <div class="row"><h2>Dublin</h2></div>
-            <div id="current-weather-description">Rain</div>
-
-            <div class="feels-like">feels like 15C</div>
-            <div id="max-min">
-              ↑<span id="maxT">21</span>°C ↓<span id="minT">10</span>°C
+            <div class="current-conditions">
+              <div class="percipitation">Percipitation 23%</div>
+              <div class="humidity">Humidity 73%</div>
+              <div class="wind">Wind 3m/s</div>
             </div>
           </div>
         </div>
@@ -89,8 +91,8 @@
       <section class="forecast">
         <div class="card first">
           <div class="card-body forecast">
-            <div class="row">
-              <div class="col-4 col-md-3">
+            <div class="row justify-content-md-center">
+              <div class="col-4 col-md-3 first-column">
                 <div class="day">Monday</div>
                 <div class="weather-desc">Rainy</div>
                 <div class="feels">feels like 14C</div>
@@ -113,7 +115,7 @@
 
         <div class="card second">
           <div class="card-body forecast">
-            <div class="row">
+            <div class="row justify-content-md-center">
               <div class="col-4 col-md-3">
                 <div class="day">Monday</div>
                 <div class="weather-desc">Rainy</div>
@@ -137,7 +139,7 @@
 
         <div class="card first">
           <div class="card-body forecast">
-            <div class="row">
+            <div class="row justify-content-md-center">
               <div class="col-4 col-md-3">
                 <div class="day">Monday</div>
                 <div class="weather-desc">Rainy</div>
@@ -161,7 +163,7 @@
 
         <div class="card second">
           <div class="card-body forecast">
-            <div class="row">
+            <div class="row justify-content-md-center">
               <div class="col-4 col-md-3">
                 <div class="day">Monday</div>
                 <div class="weather-desc">Rainy</div>
@@ -185,7 +187,7 @@
 
         <div class="card first">
           <div class="card-body forecast">
-            <div class="row">
+            <div class="row justify-content-md-center">
               <div class="col-4 col-md-3">
                 <div class="day">Monday</div>
                 <div class="weather-desc">Rainy</div>

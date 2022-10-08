@@ -2,23 +2,19 @@ header {
   background-color: rgb(97, 97, 99);
   padding-top: 1rem;
 }
-.time {
-  margin-left: 2rem;
-  height: 2.4rem;
-  padding: 0.3rem;
-  color: rgb(236, 236, 237);
-}
+
 .search {
   border-width: 1px;
   border-color: rgba(72, 72, 74, 0.5);
-  height: 2.4rem;
+  height: 2rem;
   width: 10rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   text-align: center;
 }
+
 #location {
   background-color: rgb(236, 236, 237);
-  margin-left: 4rem;
+  margin-left: 7rem;
   width: min-content;
   border-radius: 30% 0% 0% 30%;
 }
@@ -28,43 +24,74 @@ header {
   border-radius: 0 30% 30% 0%;
   width: min-content;
 }
+
+.clock {
+  margin-left: 2rem;
+  height: 2rem;
+  color: rgb(236, 236, 237);
+}
+
+.calendar {
+  margin-left: 1.5rem;
+}
+
 .date {
   text-align: right;
   align-self: flex-end;
-  max-height: 2.4rem;
+  max-height: 2rem;
   min-width: max-content;
   color: rgb(236, 236, 237);
-  margin-right: 4rem;
+  margin-right: 8rem;
   margin-left: 4rem;
   margin-bottom: 0.5rem;
 }
-
+/* Current weather section */
 .current-weather {
-  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-top: 2rem;
   padding-bottom: 1rem;
 }
 
-#weather-icon {
-  padding-top: 1rem;
-  width: 5em;
-  height: auto;
+.current-city {
+  margin-left: 0rem;
 }
 #current-weather-description {
+  margin-left: 0.5rem;
   font-size: 1rem;
-  text-align: center;
 }
 
-.temperature {
+.feels-like,
+#max-min {
+  margin-left: 0.5rem;
+  line-height: 1.1rem;
   font-size: 0.8rem;
 }
 
-#current-temperature {
-  line-height: 2rem;
+.icon {
+  padding-top: 1rem;
+}
+
+.units {
+  text-align: right;
+  font-size: 0.8rem;
+}
+#c,
+#f {
+  text-decoration: none;
+  color: black;
+  align-self: right;
+}
+.heading {
+  text-align: right;
+  padding-right: 1rem;
+  line-height: 2.1rem;
   font-size: 2.1rem;
 }
-.current-conditions,
-.feels-like,
-#max-min {
+
+.current-conditions {
+  font-weight: 400;
+  text-align: right;
+  margin-left: 1rem;
   line-height: 1.1rem;
   font-size: 0.8rem;
 }
@@ -72,5 +99,5 @@ header {
 /* forecast section */
 
 .first {
-  background-color: rgba(236, 236, 237, 0.8);
+  background-color: rgba(97, 97, 99, 0.4);
 }
