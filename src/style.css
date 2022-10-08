@@ -1,6 +1,14 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+
+.weather-app {
+  max-width: 700px;
+  margin: 1% 0 1% 0;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
 header {
   background-color: rgb(22, 33, 89);
   padding-top: 1rem;
@@ -17,7 +25,7 @@ header {
 
 #location {
   background-color: rgb(236, 236, 237);
-  margin-left: 12%;
+  margin-left: 7%;
   width: min-content;
   border-radius: 30% 0% 0% 30%;
 }
@@ -44,19 +52,19 @@ header {
   max-height: 2rem;
   min-width: max-content;
   color: rgb(236, 236, 237);
-  margin-right: 12%;
+  margin-right: 7%;
   margin-left: 4rem;
   margin-bottom: 0.5rem;
 }
 /* Current weather section */
 .current-weather {
-  padding-left: 1rem;
-  padding-top: 2rem;
+  margin: 0 auto;
+  padding-top: 1.5rem;
   padding-bottom: 1rem;
 }
 
 .current-city {
-  margin-left: 0rem;
+  margin-left: 0.5rem;
 }
 #current-weather-description {
   margin-left: 1rem;
@@ -67,7 +75,7 @@ header {
 
 .feels-like,
 #max-min {
-  margin-left: 1.5rem;
+  padding-left: 1rem;
   line-height: 1.2rem;
   font-weight: 300;
   font-size: 0.9rem;
@@ -87,9 +95,8 @@ header {
   color: black;
   align-self: right;
 }
-.heading {
+.heading-conditions {
   text-align: right;
-
   margin-right: 0rem;
   padding-left: 0;
   padding-right: 2rem;
@@ -140,4 +147,7 @@ header {
 }
 .second {
   background-color: rgba(22, 33, 89, 0.112);
+}
+.last {
+  margin-bottom: 0.5rem;
 }
