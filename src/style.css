@@ -98,6 +98,18 @@ header {
 
 /* forecast section */
 
+.day {
+  font-weight: 400;
+  font-weight: bold;
+}
+.icon-weekday {
+  width: 4rem;
+}
+.weather-condition {
+  font-size: 0.9rem;
+  text-align: right;
+}
+
 .first {
   background-color: rgba(97, 97, 99, 0.4);
 }
