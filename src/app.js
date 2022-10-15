@@ -1,41 +1,36 @@
-//formating date
-let date = new Date();
-let month = date.getMonth() + 1;
-let dateFormat = `${date.getDate()}/${month}/${date.getFullYear()}`;
-let updateDate = document.querySelector("#updateDate");
-updateDate.innerHTML = dateFormat;
-
-//formating weekday, time
-let minutes = date.getMinutes();
-minutes = minutes.toString();
-let hour = date.getHours();
-hour = hour.toString();
-let time = `${hour.padStart(2, "0")}:${minutes.padStart(2, "0")}`;
-let week = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-let weekDay = week[date.getDay()];
-let upadateToday = document.querySelector("#today");
-upadateToday.innerHTML = `   ${weekDay},`;
-
-//let updateTime = document.querySelector("#update-time");
-//updateTime.innerHTML = `   ${time}`;
-
-//api getting weather data from OpenWeather
-
-function formatTime(timestamp) {
+function formatDate(timestamp) {
   let date = new Date(timestamp);
+
+  let week = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let month = date.getMonth() + 1;
+  console.log(month);
+
+  let weekDay = week[date.getDay()];
   console.log(date);
-  return "05:40 AM";
+  //formating date
+  return ` ${weekDay}, ${date.getDate()}/${month}/${date.getFullYear()}`;
 }
 
+function formatTime(timestamp) {
+  //formating weekday, time
+  let date = new Date(timestamp);
+  let minutes = date.getMinutes();
+  minutes = minutes.toString();
+  let hour = date.getHours();
+  hour = hour.toString();
+  let time = `${hour.padStart(2, "0")}:${minutes.padStart(2, "0")}`;
+
+  return `${time}`;
+}
+//updating data on current weather
 function displayTemperature(response) {
   console.log(response.data);
   let elementDescription = document.querySelector(
@@ -63,8 +58,17 @@ function displayTemperature(response) {
   //update time
   let elementTime = document.querySelector("#update-time");
   elementTime.innerHTML = formatTime(response.data.dt * 1000);
-  console.log(response.data.dt * 1000);
+  //update date
+  let elementDate = document.querySelector("#update-date");
+  elementDate.innerHTML = formatDate(response.data.dt * 1000);
+
+  let icon = document.querySelector("#weather-icon");
+  icon.innerHTML = `http://openweathermap.org/img/wn/10d@2x.png`;
 }
+
+//updating icon
+
+//api getting weather data from OpenWeather
 let cityName = "New York, US";
 let apiKey = `fb99ccb8bab77cbda8d3a1f7be433a27`;
 let urlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
