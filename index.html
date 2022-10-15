@@ -54,8 +54,8 @@
             </button>
             <div class="date col-sm">
               <span class="clock"
-                ><i class="bi bi-clock"></i
-                ><span id="update-time"> 15:00</span></span
+                ><i class="bi bi-clock"></i><span> Last updated at</span
+                ><span id="update-time">15:00</span></span
               >
               <span class="calendar">
                 <i class="bi bi-calendar3"></i>
@@ -72,7 +72,9 @@
               <h2 class="current-city">Dublin</h2>
               <div id="current-weather-description">Rain</div>
 
-              <div class="feels-like">feels like 15C</div>
+              <div class="feels-like">
+                Feels like <span id="feels-like-element">15</span>°C
+              </div>
               <div id="max-min">
                 ↑<span id="maxT">21</span>°C ↓<span id="minT">10</span>°C
               </div>
@@ -92,9 +94,9 @@
               </span>
 
               <div class="current-conditions">
-                <div class="percipitation">Percipitation 23%</div>
-                <div class="humidity">Humidity 73%</div>
-                <div class="wind">Wind 3m/s</div>
+                <div>Percipitation <span id="pressure">23</span> bar</div>
+                <div>Humidity <span id="humidity">73</span>%</div>
+                <div>Wind <span id="wind">3</span> m/s</div>
               </div>
             </div>
           </div>

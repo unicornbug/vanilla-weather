@@ -71,6 +71,7 @@ header {
 .current-city {
   margin-left: 0.5rem;
 }
+
 #current-weather-description {
   margin-left: 1rem;
   font-size: 1.2rem;
@@ -116,6 +117,10 @@ header {
   margin-left: 1rem;
   line-height: 1.2rem;
   font-size: 0.9rem;
+}
+
+#current-weather-condition {
+  margin-left: 0.5rem;
 }
 
 /* forecast section */
