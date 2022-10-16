@@ -36,7 +36,7 @@
     <div class="container">
       <div class="weather-app">
         <header>
-          <div class="row">
+          <div class="row header-row">
             <button id="location" class="search">
               <i class="bi bi-geo-alt"></i>
             </button>
@@ -53,14 +53,14 @@
             </button>
             </form>
           
-            <div class="date col-sm">
+            <div class="col-sm date">
               <span class="clock"
                 ><i class="bi bi-clock"></i><span> Last updated at</span
                 ><span id="update-time">15:00</span></span
               >
               <span class="calendar">
-                <i class="bi bi-calendar3 date"></i> 
-                <span id="update-date" class="date"> Thursday, 23/4/2022</span
+                <i class="bi bi-calendar3"></i> 
+                <span id="update-date"> Thursday, 23/4/2022</span
               >
             </div>
           </div>
@@ -69,7 +69,7 @@
         <section class="current-weather">
           <div class="row justify-content-md-center">
             <div class="col-4 col-md-3">
-              <h2 class="current-city" id="city">Dublin</h2>
+              <span class="current-city"><span id="city">Dublin</span><span id="country">IE</span></span>
               <div id="current-weather-description">Rain</div>
 
               <div class="feels-like">
@@ -102,132 +102,7 @@
           </div>
         </section>
 
-        <section class="forecast">
-          <div class="card first">
-            <div class="card-body forecast">
-              <div class="row justify-content-md-center">
-                <div class="col-4 col-md-3 first-column">
-                  <div class="day">Monday</div>
-                  <div class="weather-desc">Rainy</div>
-                  <div class="feels">feels like 14C</div>
-                </div>
-                <div class="col-4 col-md-3">
-                  <img
-                    class="rounded mx-auto d-block icon-weekday"
-                    id="weather-icon"
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="weather condition"
-                  />
-                </div>
-                <div class="col-4 col-md-3 weather-condition">
-                  <div class="day-temperature">21° / 10°</div>
-                  <div class="relative-humidity">RH: 72%</div>
-                  <div class="wind-speed">WS: 18km/h</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card second">
-            <div class="card-body forecast">
-              <div class="row justify-content-md-center">
-                <div class="col-4 col-md-3">
-                  <div class="day">Monday</div>
-                  <div class="weather-desc">Rainy</div>
-                  <div class="feels">feels like 14C</div>
-                </div>
-                <div class="col-4 col-md-3">
-                  <img
-                    class="rounded mx-auto d-block icon-weekday"
-                    id="weather-icon"
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="weather condition"
-                  />
-                </div>
-                <div class="col-4 col-md-3 weather-condition">
-                  <div class="day-temperature">21° / 10°</div>
-                  <div class="relative-humidity">RH: 72%</div>
-                  <div class="wind-speed">WS: 18km/h</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card first">
-            <div class="card-body forecast">
-              <div class="row justify-content-md-center">
-                <div class="col-4 col-md-3">
-                  <div class="day">Monday</div>
-                  <div class="weather-desc">Rainy</div>
-                  <div class="feels">feels like 14C</div>
-                </div>
-                <div class="col-4 col-md-3">
-                  <img
-                    class="rounded mx-auto d-block icon-weekday"
-                    id="weather-icon"
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="weather condition"
-                  />
-                </div>
-                <div class="col-4 col-md-3 weather-condition">
-                  <div class="day-temperature">21° / 10°</div>
-                  <div class="relative-humidity">RH: 72%</div>
-                  <div class="wind-speed">WS: 18km/h</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card second">
-            <div class="card-body forecast">
-              <div class="row justify-content-md-center">
-                <div class="col-4 col-md-3">
-                  <div class="day">Monday</div>
-                  <div class="weather-desc">Rainy</div>
-                  <div class="feels">feels like 14C</div>
-                </div>
-                <div class="col-4 col-md-3">
-                  <img
-                    class="rounded mx-auto d-block icon-weekday"
-                    id="weather-icon"
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="weather condition"
-                  />
-                </div>
-                <div class="col-4 col-md-3 weather-condition">
-                  <div class="day-temperature">21° / 10°</div>
-                  <div class="relative-humidity">RH: 72%</div>
-                  <div class="wind-speed">WS: 18km/h</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card first">
-            <div class="card-body forecast last">
-              <div class="row justify-content-md-center">
-                <div class="col-4 col-md-3">
-                  <div class="day">Monday</div>
-                  <div class="weather-desc">Rainy</div>
-                  <div class="feels">feels like 14C</div>
-                </div>
-                <div class="col-4 col-md-3">
-                  <img
-                    class="rounded mx-auto d-block icon-weekday"
-                    id="weather-icon"
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="weather condition"
-                  />
-                </div>
-                <div class="col-4 col-md-3 weather-condition">
-                  <div class="day-temperature">21° / 10°</div>
-                  <div class="relative-humidity">RH: 72%</div>
-                  <div class="wind-speed">WS: 18km/h</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+     
       </div>
     </div>
     <script src="src/app.js"></script>
