@@ -44,7 +44,8 @@ function displayTemperature(response) {
   let elementHumidity = document.querySelector("#humidity");
   let elementWind = document.querySelector("#wind");
 
-  elementDescription.innerHTML = response.data.weather[0].description;
+  let weatherDescription = response.data.weather[0].description;
+
   elementFeelsLike.innerHTML = Math.round(response.data.main.feels_like);
   elementMaxT.innerHTML = Math.round(response.data.main.temp_max);
   elementMinT.innerHTML = Math.round(response.data.main.temp_min);
@@ -54,6 +55,7 @@ function displayTemperature(response) {
   ).toFixed(2);
   elementHumidity.innerHTML = response.data.main.humidity;
   elementWind.innerHTML = response.data.wind.speed;
+  elementDescription.innerHTML = weatherDescription;
 
   //update time
   let elementTime = document.querySelector("#update-time");
@@ -61,9 +63,14 @@ function displayTemperature(response) {
   //update date
   let elementDate = document.querySelector("#update-date");
   elementDate.innerHTML = formatDate(response.data.dt * 1000);
-
+  // update weatherIcon
   let icon = document.querySelector("#weather-icon");
-  icon.innerHTML = `http://openweathermap.org/img/wn/10d@2x.png`;
+  let weatherIcon = response.data.weather[0].icon;
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
+  );
+  icon.setAttribute("alt", weatherDescription);
 }
 
 //updating icon
