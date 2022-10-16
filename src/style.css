@@ -17,8 +17,9 @@ header {
 .search {
   border-width: 1px;
   border-color: rgb(22, 33, 89);
+
   height: 2rem;
-  width: 10rem;
+
   margin-bottom: 0.5rem;
   text-align: center;
 }
@@ -29,15 +30,19 @@ header {
   width: min-content;
   border-radius: 30% 0% 0% 30%;
 }
-
+#search-city {
+  float: left;
+  width: 9rem;
+}
 #magnifier {
+  float: right;
   background-color: rgb(236, 236, 237);
   border-radius: 0 30% 30% 0%;
   width: min-content;
 }
 
 .clock {
-  margin-left: 2rem;
+  margin-left: 2%;
   height: 2rem;
   color: rgb(236, 236, 237);
 }
@@ -45,20 +50,15 @@ header {
   margin-left: 0.2rem;
 }
 .calendar {
-  margin-left: 1.5rem;
-}
-#today {
-  margin-left: 0.2rem;
+  margin-left: 3%;
 }
 
 .date {
   text-align: right;
-  align-self: flex-end;
   max-height: 2rem;
   min-width: max-content;
   color: rgb(236, 236, 237);
-  margin-right: 7%;
-  margin-left: 4rem;
+  margin-right: 1%;
   margin-bottom: 0.5rem;
 }
 /* Current weather section */

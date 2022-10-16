@@ -47,19 +47,20 @@
                 type="search"
                 placeholder="Search city"
               />
-            </form>
-            <button id="magnifier" class="search">
+              <button id="magnifier" type="submit" class="search">
               <!-- bootstrap icon snippet from https://icons.getbootstrap.com/ -->
               <i class="bi bi-search"></i>
             </button>
+            </form>
+          
             <div class="date col-sm">
               <span class="clock"
                 ><i class="bi bi-clock"></i><span> Last updated at</span
                 ><span id="update-time">15:00</span></span
               >
               <span class="calendar">
-                <i class="bi bi-calendar3"></i>
-                <span id="update-date"> Thursday, 23/4/2022</span
+                <i class="bi bi-calendar3 date"></i> 
+                <span id="update-date" class="date"> Thursday, 23/4/2022</span
               >
             </div>
           </div>
@@ -68,7 +69,7 @@
         <section class="current-weather">
           <div class="row justify-content-md-center">
             <div class="col-4 col-md-3">
-              <h2 class="current-city">Dublin</h2>
+              <h2 class="current-city" id="city">Dublin</h2>
               <div id="current-weather-description">Rain</div>
 
               <div class="feels-like">

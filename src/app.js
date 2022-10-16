@@ -36,6 +36,7 @@ function displayTemperature(response) {
   let elementDescription = document.querySelector(
     "#current-weather-description"
   );
+  let elementCity = document.querySelector("#city");
   let elementFeelsLike = document.querySelector("#feels-like-element");
   let elementMaxT = document.querySelector("#maxT");
   let elementMinT = document.querySelector("#minT");
@@ -45,7 +46,7 @@ function displayTemperature(response) {
   let elementWind = document.querySelector("#wind");
 
   let weatherDescription = response.data.weather[0].description;
-
+  elementCity.innerHTML = response.data.name;
   elementFeelsLike.innerHTML = Math.round(response.data.main.feels_like);
   elementMaxT.innerHTML = Math.round(response.data.main.temp_max);
   elementMinT.innerHTML = Math.round(response.data.main.temp_min);
@@ -73,11 +74,22 @@ function displayTemperature(response) {
   icon.setAttribute("alt", weatherDescription);
 }
 
-//updating icon
+//search form for the city
 
-//api getting weather data from OpenWeather
-let cityName = "New York, US";
-let apiKey = `fb99ccb8bab77cbda8d3a1f7be433a27`;
-let urlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+function searchingTown(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#search-city");
+  let cityName = cityInput.value;
+  //api getting weather data from OpenWeather
 
-axios.get(urlWeather).then(displayTemperature);
+  let apiKey = `fb99ccb8bab77cbda8d3a1f7be433a27`;
+  let urlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+
+  axios.get(urlWeather).then(displayTemperature);
+}
+
+let findTown = document.querySelector("#search-form");
+findTown.addEventListener("submit", searchingTown);
+
+let magnifier = document.getElementById("magnifier");
+magnifier.addEventListener("submit", searchingTown);
