@@ -28,9 +28,17 @@ function formatTime(timestamp) {
 
   return `${time}`;
 }
-//updating data on current weather
+
+//getting data for 7day forecast through coordinates info from daily forecast
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = `fb99ccb8bab77cbda8d3a1f7be433a27`;
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={current,minutely,hourly,alerts}&appid=${apiKey}`;
+}
+
+//updating data on current weather (daily forecast)
 function displayTemperature(response) {
-  console.log(response.data.coords);
+  getForecast(response.data.coord);
   let elementDescription = document.querySelector(
     "#current-weather-description"
   );
