@@ -30,7 +30,7 @@ function formatTime(timestamp) {
 }
 //updating data on current weather
 function displayTemperature(response) {
-  console.log(response.data);
+  console.log(response.data.coords);
   let elementDescription = document.querySelector(
     "#current-weather-description"
   );
@@ -75,6 +75,37 @@ function displayTemperature(response) {
   );
   icon.setAttribute("alt", weatherDescription);
 }
+
+//injecting forecast data
+function displayForecast() {
+  let days = ["Monday", "Tuesday", "Wednesday", "Saturday", "Sunday"];
+  let dayForecast = `<div class="row">`;
+  days.forEach((element) => {
+    dayForecast =
+      dayForecast +
+      `
+  
+    <div class="col-2">
+      <div class="day">${element}</div>
+      <img
+        class="float-center"
+        id="weather-icon"
+        src="http://openweathermap.org/img/wn/10d@2x.png"
+        alt="weather condition"
+      />
+      <div class="forecast-temperature">
+      <span class="forecast-max-temperature">12</span>
+      <span class="forecast-min-temperature">10</span>
+      </div>
+    </div>`;
+  });
+
+  dayForecast = dayForecast + `</div>`;
+  let weatherForecast = document.getElementById("weather-forecast");
+  weatherForecast.innerHTML = dayForecast;
+}
+
+displayForecast();
 
 //search form for the city
 
