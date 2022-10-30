@@ -25,19 +25,55 @@ function formatTime(timestamp) {
   let hour = date.getHours();
   hour = hour.toString();
   let time = `${hour.padStart(2, "0")}:${minutes.padStart(2, "0")}`;
-
   return `${time}`;
 }
 
-//getting data for 7day forecast through coordinates info from daily forecast
-function getForecast(coordinates) {
-  console.log(coordinates);
-  let apiKey = `fb99ccb8bab77cbda8d3a1f7be433a27`;
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={current,minutely,hourly,alerts}&appid=${apiKey}`;
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
 }
 
-//updating data on current weather (daily forecast)
+//getting data for 7day forecast through coordinates info from daily forecast
+async function getForecast(coordinates) {
+  let apiKey = `fb99ccb8bab77cbda8d3a1f7be433a27`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  let response = await axios.get(apiUrl);
+  let forecast = response.data.list;
+  console.log(forecast);
+
+  let dayForecast = `<div class="row">`;
+
+  forecast.forEach((element) => {
+    dayForecast =
+      dayForecast +
+      `
+  
+    <div class="col-2">
+      <div class="day">${formatForecastDay(element.dt)}</div>
+      <img
+        class="float-center"
+        id="weather-icon"
+        src="http://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png"
+        alt="weather condition"
+      />
+      <div class="forecast-temperature">
+      <span class="forecast-max-temperature">${element.main.temp_max}</span>
+      <span class="forecast-min-temperature">${element.main.temp_min}</span>
+      </div>
+    </div>`;
+  });
+
+  dayForecast = dayForecast + `</div>`;
+  let weatherForecast = document.getElementById("weather-forecast");
+  weatherForecast.innerHTML = dayForecast;
+}
+
+//2. updating data on current weather (daily forecast)
 function displayTemperature(response) {
+  console.log("display temperature");
   getForecast(response.data.coord);
   let elementDescription = document.querySelector(
     "#current-weather-description"
@@ -84,38 +120,7 @@ function displayTemperature(response) {
   icon.setAttribute("alt", weatherDescription);
 }
 
-//injecting forecast data
-function displayForecast() {
-  let days = ["Monday", "Tuesday", "Wednesday", "Saturday", "Sunday"];
-  let dayForecast = `<div class="row">`;
-  days.forEach((element) => {
-    dayForecast =
-      dayForecast +
-      `
-  
-    <div class="col-2">
-      <div class="day">${element}</div>
-      <img
-        class="float-center"
-        id="weather-icon"
-        src="http://openweathermap.org/img/wn/10d@2x.png"
-        alt="weather condition"
-      />
-      <div class="forecast-temperature">
-      <span class="forecast-max-temperature">12</span>
-      <span class="forecast-min-temperature">10</span>
-      </div>
-    </div>`;
-  });
-
-  dayForecast = dayForecast + `</div>`;
-  let weatherForecast = document.getElementById("weather-forecast");
-  weatherForecast.innerHTML = dayForecast;
-}
-
-displayForecast();
-
-//search form for the city
+//1.2 search form for the city
 
 function searchingTown(event) {
   event.preventDefault();
@@ -123,27 +128,23 @@ function searchingTown(event) {
   let cityName = cityInput.value;
   //api getting weather data from OpenWeather
 
-  let apiKey = `fb99ccb8bab77cbda8d3a1f7be433a27`;
+  let apiKey = `cb286bad3607984b41ed10c8de5cf00e`;
   let urlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
 
   axios.get(urlWeather).then(displayTemperature);
 }
 
-let findTown = document.querySelector("#search-form");
-findTown.addEventListener("submit", searchingTown);
-
-let magnifier = document.getElementById("magnifier");
-magnifier.addEventListener("submit", searchingTown);
-
-//Searching for local weather
+//1.1 Searching for local weather- calling from findLocalWeather
 function showPosition(position) {
   let lon = position.coords.longitude;
   let lat = position.coords.latitude;
-  let apiKey = `fb99ccb8bab77cbda8d3a1f7be433a27`;
+  let apiKey = `cb286bad3607984b41ed10c8de5cf00e`;
   let openWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
   axios.get(openWeatherUrl).then(displayTemperature);
 }
 
+//0
 function findLocalWeather() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
@@ -177,7 +178,14 @@ function calculateC(event) {
   fahrenheit.style.color = "rgba(54, 56, 62, 0.4)";
 }
 
-let celsiusTemperature = null;
+//Event Listener
 
+let celsiusTemperature = null;
 let fahrenheit = document.querySelector("#f");
 fahrenheit.addEventListener("click", calculateF);
+
+let findTown = document.querySelector("#search-form");
+findTown.addEventListener("submit", searchingTown);
+
+let magnifier = document.getElementById("magnifier");
+magnifier.addEventListener("submit", searchingTown);
