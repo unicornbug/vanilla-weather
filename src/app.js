@@ -37,33 +37,43 @@ function formatForecastDay(timestamp) {
 
 //getting data for 7day forecast through coordinates info from daily forecast
 async function getForecast(coordinates) {
-  let apiKey = `fb99ccb8bab77cbda8d3a1f7be433a27`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let key = `ca8fboc4888373atb3f492ce6063330f`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${key}`;
 
   let response = await axios.get(apiUrl);
-  let forecast = response.data.list;
-  console.log(forecast);
 
-  let dayForecast = `<div class="row">`;
+  ///update Current weatherIcon with SheCodes design
+  //let icon = document.querySelector("#weather-icon");
+  //icon.setAttribute("src", `${response.data.daily[0].condition.icon_url}`);
+  //icon.setAttribute("alt", `${response.data.daily[0].condition.icon}`);
 
-  forecast.forEach((element) => {
-    dayForecast =
-      dayForecast +
-      `
-  
-    <div class="col-2">
-      <div class="day">${formatForecastDay(element.dt)}</div>
+  /// updating the forecast
+  let forecast = response.data.daily;
+
+  let dayForecast = `<div class="row forecast">`;
+
+  forecast.forEach((element, index) => {
+    if (index > 0 && index < 7) {
+      dayForecast =
+        dayForecast +
+        `<div class="col-2 col-md-2">
+      <div class="day">${formatForecastDay(element.time)}</div>
       <img
-        class="float-center"
-        id="weather-icon"
-        src="http://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png"
-        alt="weather condition"
+        
+        class="icon-weekday"
+        src=${element.condition.icon_url}
+        alt=${element.condition.icon}
       />
       <div class="forecast-temperature">
-      <span class="forecast-max-temperature">${element.main.temp_max}</span>
-      <span class="forecast-min-temperature">${element.main.temp_min}</span>
+      <span class="forecast-max-temperature">↑${Math.round(
+        element.temperature.maximum
+      )}°</span>
+      <span class="forecast-min-temperature">↓${Math.round(
+        element.temperature.minimum
+      )}°</span>
       </div>
     </div>`;
+    }
   });
 
   dayForecast = dayForecast + `</div>`;
@@ -73,7 +83,6 @@ async function getForecast(coordinates) {
 
 //2. updating data on current weather (daily forecast)
 function displayTemperature(response) {
-  console.log("display temperature");
   getForecast(response.data.coord);
   let elementDescription = document.querySelector(
     "#current-weather-description"
@@ -99,9 +108,9 @@ function displayTemperature(response) {
   elementCurrentTemp.innerHTML = Math.round(celsiusTemperature);
   elementPressure.innerHTML = parseFloat(
     response.data.main.pressure / 1000
-  ).toFixed(2);
+  ).toFixed(1);
   elementHumidity.innerHTML = response.data.main.humidity;
-  elementWind.innerHTML = response.data.wind.speed;
+  elementWind.innerHTML = parseFloat(response.data.wind.speed).toFixed(1);
   elementDescription.innerHTML = weatherDescription;
 
   //update time
@@ -110,14 +119,13 @@ function displayTemperature(response) {
   //update date
   let elementDate = document.querySelector("#update-date");
   elementDate.innerHTML = formatDate(response.data.dt * 1000);
-  // update weatherIcon
+  //weather icon
   let icon = document.querySelector("#weather-icon");
-  let weatherIcon = response.data.weather[0].icon;
   icon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  icon.setAttribute("alt", weatherDescription);
+  icon.setAttribute("alt", `${weatherDescription}`);
 }
 
 //1.2 search form for the city
@@ -140,7 +148,6 @@ function showPosition(position) {
   let lat = position.coords.latitude;
   let apiKey = `cb286bad3607984b41ed10c8de5cf00e`;
   let openWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-
   axios.get(openWeatherUrl).then(displayTemperature);
 }
 

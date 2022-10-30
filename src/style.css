@@ -6,10 +6,8 @@ h1 {
   font-size: 2rem;
 }
 .weather-app {
-  max-width: 700px;
-  margin: 1% 0 1% 0;
-  border: 1px solid grey;
-  border-radius: 5px;
+  margin-top: 2%;
+  margin-left: 2%;
 }
 
 header {
@@ -17,6 +15,13 @@ header {
   padding-bottom: 0.5rem;
 }
 
+.weather {
+  padding: 0 0 0 0;
+  width: fit-content;
+  margin: 0 auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
 .header-row {
   align-items: baseline;
 }
@@ -67,10 +72,16 @@ header {
   margin-top: 0.5rem;
 }
 /* Current weather section */
-.current-weather {
+.current-weather-wrap {
   margin: 0 auto;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
+  padding-right: 2rem;
+  padding-left: 1rem;
+}
+.current-weather {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
 }
 
 .current-city {
@@ -104,7 +115,9 @@ header {
 }
 
 .icon {
+  padding: 0 0 0 0;
   padding-top: 1rem;
+  width: 7rem;
 }
 
 .units {
@@ -126,9 +139,6 @@ header {
 }
 .heading-conditions {
   text-align: right;
-  margin-right: 0rem;
-  padding-left: 0;
-  padding-right: 2rem;
   line-height: 2.1rem;
   font-size: 2.2rem;
 }
@@ -147,17 +157,15 @@ header {
 }
 
 /* forecast section */
-.forecast {
-  font-weight: 300;
-  font-family: "Roboto", sans-serif;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  padding-bottom: 0.5rem;
-  padding-top: 0.8rem;
+#weather-forecast {
+  padding-bottom: 1rem;
 }
+
 .day {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
+  padding-right: 0.5rem;
+  text-align: center;
 }
 .weather-desc {
   padding-left: 0.5rem;
@@ -166,21 +174,11 @@ header {
   padding-left: 0.5rem;
 }
 .icon-weekday {
-  padding-top: 1rem;
-  width: 4rem;
+  width: 3.5rem;
+  float: left;
 }
-.weather-condition {
+.forecast-temperature {
+  text-align: center;
   font-size: 0.9rem;
-  padding: 1rem 0 0 0;
-  text-align: right;
-}
-
-.first {
-  background-color: rgba(22, 33, 89, 0.242);
-}
-.second {
-  background-color: rgba(22, 33, 89, 0.112);
-}
-.last {
-  margin-bottom: 0.5rem;
+  color: rgb(22, 33, 89);
 }

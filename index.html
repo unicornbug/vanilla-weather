@@ -33,8 +33,9 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="weather-app">
+  <div class="weather-app">
+    <div class="container weather">
+      
         <header>
           <div class="row header-row">
             <button id="location" class="search">
@@ -56,47 +57,47 @@
             <div class="col-sm date">
               <span class="clock"
                 ><i class="bi bi-clock"></i><span> Last updated at</span
-                ><span id="update-time">15:00</span></span
+                ><span id="update-time"></span></span
               >
               <span class="calendar">
                 <i class="bi bi-calendar3"></i> 
-                <span id="update-date"> Thursday, 23/4/2022</span
+                <span id="update-date"></span
               >
             </div>
           </div>
         </header>
 
-        <section class="current-weather">
-          <div class="row justify-content-md-center">
-            <div class="col-4 col-md-3">
-              <span class="current-city"><span id="city">Dublin</span><span id="country">IE</span></span>
-              <div id="current-weather-description">Rain</div>
+        <section class="current-weather-wrap">
+          <div class="row">
+            <div class="col-4 col-md-4 current-weather">
+              <span class="current-city"><span id="city">City</span><span id="country">country</span></span>
+              <div id="current-weather-description"></div>
 
               <div class="feels-like">
-                Feels like <span id="feels-like-element">15</span>°C
+                Feels like <span id="feels-like-element"></span>°C
               </div>
               <div id="max-min">
-                ↑<span id="maxT">21</span>°C ↓<span id="minT">10</span>°C
+                ↑<span id="maxT">max</span>°C ↓<span id="minT">min</span>°C
               </div>
             </div>
-            <div class="col-3 col-md-2 icon">
+            <div class="col-4 col-md-3 icon current-weather" >
               <img
                 class="float-center"
                 id="weather-icon"
-                src="http://openweathermap.org/img/wn/10d@2x.png"
+                src=""
                 alt="weather condition"
               />
             </div>
-            <div class="col-5 col-md-4 heading-conditions">
-              <span id="current-temperature">20</span>
+            <div class="col-4 col-md-5 heading-conditions current-weather">
+              <span id="current-temperature">temp</span>
               <span class="align-text-top units">
                 <a href="" id="c">°C</a> | <a href="" id="f">°F</a>
               </span>
 
               <div class="current-conditions">
-                <div>Percipitation <span id="pressure">23</span> bar</div>
-                <div>Humidity <span id="humidity">73</span>%</div>
-                <div>Wind <span id="wind">3</span> m/s</div>
+                <div>Pressure <span id="pressure"></span> bar</div>
+                <div>Humidity <span id="humidity"></span>%</div>
+                <div>Wind <span id="wind"></span> m/s</div>
               </div>
             </div>
           </div>
