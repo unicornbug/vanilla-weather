@@ -58,16 +58,14 @@ async function getForecast(coordinates) {
         dayForecast +
         `<div class="col-2 col-md-2">
       <div class="day">${formatForecastDay(element.time)}</div>
-      <img
-        
-        class="icon-weekday"
+      <img class="icon-weekday"
         src=${element.condition.icon_url}
         alt=${element.condition.icon}
       />
       <div class="forecast-temperature">
-      <span class="forecast-max-temperature">↑${Math.round(
-        element.temperature.maximum
-      )}°</span>
+       <span class="forecast-max-temperature">↑${Math.round(
+         element.temperature.maximum
+       )}°</span>
       <span class="forecast-min-temperature">↓${Math.round(
         element.temperature.minimum
       )}°</span>
@@ -81,9 +79,35 @@ async function getForecast(coordinates) {
   weatherForecast.innerHTML = dayForecast;
 }
 
-//2. updating data on current weather (daily forecast)
+//getting data for 7day forecast through coordinates info from daily forecast
+function getForecast(coordinates) {
+  let key = `ca8fboc4888373atb3f492ce6063330f`;
+  let units = "metric";
+  let celsius = document.querySelector("#c");
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${key}&units=${units}`;
+  axios.get(apiUrl).then(updateForecast);
+
+  fahrenheit.addEventListener("click", displayTemperatureF);
+  function displayTemperatureF(event) {
+    event.preventDefault();
+    units = "imperial";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${key}&units=${units}`;
+    axios.get(apiUrl).then(updateForecast);
+    celsius.addEventListener("click", displayTemperatureC);
+  }
+  function displayTemperatureC(event) {
+    event.preventDefault();
+    units = "metric";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${key}&units=${units}`;
+    axios.get(apiUrl).then(updateForecast);
+    fahrenheit.addEventListener("click", displayTemperatureF);
+  }
+}
+
+//updating data on current weather (daily forecast)
 function displayTemperature(response) {
   getForecast(response.data.coord);
+
   let elementDescription = document.querySelector(
     "#current-weather-description"
   );
@@ -129,16 +153,13 @@ function displayTemperature(response) {
 }
 
 //1.2 search form for the city
-
 function searchingTown(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#search-city");
   let cityName = cityInput.value;
-  //api getting weather data from OpenWeather
-
+  ///api getting weather data from OpenWeather
   let apiKey = `cb286bad3607984b41ed10c8de5cf00e`;
   let urlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-
   axios.get(urlWeather).then(displayTemperature);
 }
 
