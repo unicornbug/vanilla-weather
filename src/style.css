@@ -6,8 +6,8 @@ h1 {
   font-size: 2rem;
 }
 .weather-app {
-  margin-top: 2%;
-  margin-left: 2%;
+  margin-top: 5%;
+  margin-left: 0%;
 }
 
 header {
@@ -138,6 +138,7 @@ header {
 }
 .heading-conditions {
   text-align: right;
+  margin-top: 1rem;
   line-height: 2.1rem;
   font-size: 2.2rem;
 }
@@ -155,27 +156,23 @@ header {
 #weather-forecast {
   padding-bottom: 1rem;
   padding-top: 1rem;
-  background-color: rgba(22, 33, 89, 0.06);
+  background-color: rgba(22, 33, 89, 0.04);
 }
-
+.forecast-format {
+  padding: 0 0 0 0;
+}
 .day {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  padding-right: 0.5rem;
   text-align: center;
 }
-.weather-desc {
-  padding-left: 0.5rem;
-}
-.feels {
-  padding-left: 0.5rem;
-}
+
 .icon-weekday {
-  width: 3.5rem;
-  float: left;
+  width: 3.2rem;
+  margin: 0 0 0 1.1rem;
 }
 .forecast-temperature {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: rgb(22, 33, 89);
 }
