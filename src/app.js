@@ -35,19 +35,7 @@ function formatForecastDay(timestamp) {
   return days[day];
 }
 
-//getting data for 7day forecast through coordinates info from daily forecast
-async function getForecast(coordinates) {
-  let key = `ca8fboc4888373atb3f492ce6063330f`;
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${key}`;
-
-  let response = await axios.get(apiUrl);
-
-  ///update Current weatherIcon with SheCodes design
-  //let icon = document.querySelector("#weather-icon");
-  //icon.setAttribute("src", `${response.data.daily[0].condition.icon_url}`);
-  //icon.setAttribute("alt", `${response.data.daily[0].condition.icon}`);
-
-  /// updating the forecast
+function updateForecast(response) {
   let forecast = response.data.daily;
 
   let dayForecast = `<div class="row forecast">`;
@@ -56,7 +44,7 @@ async function getForecast(coordinates) {
     if (index > 0 && index < 7) {
       dayForecast =
         dayForecast +
-        `<div class="col-2 col-md-2">
+        `<div class="col-2 col-md-2 forecast-format">
       <div class="day">${formatForecastDay(element.time)}</div>
       <img class="icon-weekday"
         src=${element.condition.icon_url}
